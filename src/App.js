@@ -22,7 +22,9 @@ function App() {
     const urlencoded = new URLSearchParams();
     urlencoded.append("grant_type", "client_credentials");
     urlencoded.append("client_id", "e1tevFhotiXRNCGcGLOaxYQ0Huyvd1jY");
-    urlencoded.append("client_secret", "82CGLNU61vI2VbFH");
+    urlencoded.append("client_secret", `${process.env.REACT_CLIENT_SECRET}`);
+
+
 
     const requestOptions = {
       method: 'POST',
@@ -44,6 +46,8 @@ function App() {
       getTocken()
     } 
   }, [])  
+
+  console.log(token)
 
 
   return (
