@@ -95,10 +95,10 @@ if(isLoading) return <MyLoader />
 
 if(data.length === 0) return <FligthNotFoud />
 
-  const departureDate =  new Date (data[1].departureTime.split("T")[0]).toDateString().split("2023")
-  const arrivalDate = new Date (data[1].arrivalTime.split("T")[0]).toDateString().split("2023")
-  const departureCode = data[1].departureCode
-  const arrivalCode = data[1].arrivalCode
+  const departureDate =  new Date (data[0].departureTime.split("T")[0]).toDateString().split("2023")
+  const arrivalDate = new Date (data[0].arrivalTime.split("T")[0]).toDateString().split("2023")
+  const departureCode = data[0].departureCode
+  const arrivalCode = data[0].arrivalCode
 
 return (
     <div className="bg-gray-300 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-14 lg:px-8">

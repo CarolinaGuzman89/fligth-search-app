@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import flights from "../images/fligth-img.jpg";
 import plane from "../images/flight-takeoff-line-b.svg";
 import planeline from "../images/plane-line.svg";
-import user from "../images/user-3-fill.svg";
-import subtract from "../images/subtract-box.svg";
-import add from "../images/add-box-line.svg"
+
+import add from "../images/add-box-line.svg";
+import decrement from  "../images/decrement-line.svg"
 
 
 export default function FligthsDetails() {
@@ -26,9 +26,18 @@ export default function FligthsDetails() {
     console.log(count)
     console.log(total)
 
-    function counter() {
-        setCount(count + 1)
-        setTotal(count * total)
+    const handleIncrement = () => {
+        setCount( count + 1);
+        setTotal( total * count)
+    }
+
+    const handleDecrement = () => {
+        if (count > 2){
+            setCount(count - 1)
+            setTotal(total - unitPrice)
+        } else {
+            setCount(1)
+        }
     }
 
 
@@ -68,9 +77,11 @@ export default function FligthsDetails() {
                             <div className='text-2xl font-bold'>{Number.parseFloat(total).toFixed(2)} $</div>
                             <div>/ {details.currency}</div>
                             <div className='flex justify-center'>
-                                <p>No. boletos {count}</p>
-
-                                <button onClick={counter}>
+                                <button onClick={handleDecrement}>
+                                        <img src={decrement} alt='' className='pl-1'/>
+                                </button> 
+                                <span> {count}</span>
+                                <button onClick={handleIncrement}>
                                     <img src={add} alt='' className='pl-1'/>
                                 </button> 
                             </div>
