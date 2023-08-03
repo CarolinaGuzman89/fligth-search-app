@@ -23,8 +23,6 @@ export default function FligthsDetails() {
     const [count, setCount] = useState(1);
     const [total, setTotal] = useState(unitPrice);
 
-    console.log(count)
-    console.log(total)
 
     const handleIncrement = () => {
         setCount( count + 1);

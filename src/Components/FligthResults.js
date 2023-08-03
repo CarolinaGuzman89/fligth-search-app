@@ -31,7 +31,6 @@ useEffect(() => {
 
     const myHeaders = new Headers();
         const authorization = `Bearer ${token}`;
-        console.log(authorization)
         myHeaders.append("Authorization", authorization);
 
         const requestOptions = {
@@ -41,11 +40,9 @@ useEffect(() => {
         };
 
         const uri = "https://test.api.amadeus.com/v2/shopping/flight-offers?"+endPoint
-        console.log(uri)
         fetch(uri, requestOptions)
         .then(response => response.json())
         .then(result => {
-            console.log(result.data)
             const resultados = result.data
             const transformerData = transformData(resultados)
             setData(transformerData)
@@ -63,7 +60,6 @@ useEffect(() => {
   function transformData (results) {
     const newData = results.map((objeto)=> {
         const segment = objeto.itineraries[0].segments[0]
-        console.log(segment)
         return {
             id: objeto.id, 
             departureTime: segment.departure.at,

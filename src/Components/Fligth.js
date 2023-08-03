@@ -21,8 +21,6 @@ export default function Fligth({id, departureTime, arrivalTime, departureCode, a
     }
 
 
-    console.log(data)
-
     return (
             <div>
                 <li key={id} className="overflow-hidden rounded-md bg-white px-6 py-4 mb-5 shadow" >

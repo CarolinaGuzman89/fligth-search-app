@@ -15,7 +15,6 @@ function App() {
   const [token, setToken] = useState(useToken)
 
   function getTocken() {
-    console.log(process.env.REACT_APP_GRANT_TYPE)
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -48,7 +47,6 @@ function App() {
     } 
   }, [])  
 
- 
 
   return (
     <UseContext.Provider value={{token, setToken}}>
