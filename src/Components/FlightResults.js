@@ -4,10 +4,11 @@ import pencil from "../images/pencil-line.svg"
 import { useLocation, useNavigate } from 'react-router-dom'
 
 
-import Fligth from './Fligth'
+import Fligth from './Flight'
 import FligthNotFoud from "./FlightsNotFound";
 import { useEffect, useState } from "react";
 import MyLoader from "./MyLoader";
+import PageNotFound from "./PageNotFound";
 
 
 
@@ -21,6 +22,7 @@ export default function FligthResults({token}) {
 
     const [data, setData] = useState(null)
     const [isLoading, setIsloading] = useState(true)
+    const [error, setError] = useState(false)
     
     const location = useLocation();
     const endPoint = location.state.resultados
@@ -49,8 +51,7 @@ useEffect(() => {
             setIsloading(false)
         })
         .catch(error => {
-            console.log('error', error)
-            
+            setError(true)
         });
   }
 
@@ -87,34 +88,35 @@ useEffect(() => {
     return filtrado
 }
 
+if(error) return <PageNotFound />
+
 if(isLoading) return <MyLoader />
 
 if(data.length === 0) return <FligthNotFoud />
 
   const departureDate =  new Date (data[0].departureTime.split("T")[0]).toDateString().split("2023")
-  const arrivalDate = new Date (data[0].arrivalTime.split("T")[0]).toDateString().split("2023")
   const departureCode = data[0].departureCode
   const arrivalCode = data[0].arrivalCode
 
 return (
-    <div className="bg-gray-300 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-14 lg:px-8">
+    <div className=" h-full mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-14 lg:px-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 justify-items-center sm:justify-items-start sm:grid-cols-2 mb-5 overflow-hidden text-white  rounded-md bg-blue-900  px-10 py-6 shadow">
-          <div >
+          <div className="text-center sm:text-start" >
             <p className='text-2xl font-bold pb-3'>Vuelo de salida</p>
-            <div className='flex gap-5 pb-2'>
+            <div className='flex gap-5 pb-2 justify-center sm:justify-start'>
               <p key={data.id}>{departureCode}</p>
               <img src={plane} alt='icono de avión' className='w-6'/>
               <p>{arrivalCode}</p>
             </div>
-            <p>{departureDate}. - {arrivalDate}.</p> 
+            <p>{departureDate}.</p> 
           </div>
           <div className='flex items-center sm:justify-self-end  gap-3 pt-3' >
-            <button className='flex gap-5 justify-center w-48 h-10 p-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500' onClick={click}>Nueva busqueda<img src={pencil} alt='icono de avión' className='w-4'/></button>
-            
+            <button className='flex gap-5 justify-center w-48 h-10 p-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500' onClick={click}>Nueva busqueda<img src={pencil} alt='icono de avión' className='w-4'/>
+          </button>
           </div>
         </div>
-        <ul  className="divide-y divide-gray-200">
+        <ul >
           {data.map((item)=> (
             <Fligth {...item} />
           ))}

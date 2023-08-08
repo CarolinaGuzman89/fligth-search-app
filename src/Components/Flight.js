@@ -23,8 +23,8 @@ export default function Fligth({id, departureTime, arrivalTime, departureCode, a
 
     return (
             <div>
-                <li key={id} className="overflow-hidden rounded-md bg-white px-6 py-4 mb-5 shadow" >
-                    <div className='grid  grid-cols-1 gap-5 divide-y sm:divide-y-0 sm:grid-cols-3 sm:divide-x  items-center '>
+                <li key={id} className="overflow-hidden rounded-md bg-gray-200 px-6 py-4 mb-5 shadow" >
+                    <div className='grid  grid-cols-1 gap-5 divide-y divide-gray-400 sm:divide-y-0 sm:grid-cols-3 sm:divide-x  items-center '>
                         <div className='grid grid-cols-3 text-center'>
                             <div>
                                 <div>{departureTime.split("T")[1]}</div>
@@ -56,7 +56,7 @@ export default function Fligth({id, departureTime, arrivalTime, departureCode, a
                                 <img src={user} alt='' className='pl-1'/>
                             </div>
                             <div className="flex justify-center sm:justify-end pt-3">
-                                <button type="submit" onClick={handleClick}  className="w-32 flex justify-center   py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button type="submit" onClick={handleClick}  className="w-32 flex justify-center   py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     Seleccionar
                                 </button>
                             </div>

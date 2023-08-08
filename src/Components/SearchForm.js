@@ -9,7 +9,6 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 
-
 function SelectField(props) {
 
     const [field, state, {setValue, setTouched}] = useField(props.field.name);
@@ -75,10 +74,10 @@ export default function SearchForm() {
 
     return (
         <div>
-        <div className="relative z-10" >
-            <div className="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity" />
-            <div className="fixed z-10 inset-0 overflow-y-auto">
-                <div className="flex items-end  sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+        <div className="relative z-10 " >
+            <div className="fixed inset-0 bg-opacity-75 transition-opacity  bg-[url(./images/pexels-pixabaya.jpg)] bg-cover"  />
+            <div className="fixed z-10 inset-0 overflow-y-auto ">
+                <div className="flex items-end  sm:items-center justify-center min-h-full p-4 text-center sm:p-0 ">
                     <Formik
                         initialValues = {{ 
                             originLocationCode: "", 
@@ -93,7 +92,7 @@ export default function SearchForm() {
                         validationSchema={newSchema}
                     >
                     {({ isSubmitting }) => (
-                        <Form  className="relative bg-white rounded-lg px-4 pt-5 pb-10 text-left overflow-hidden shadow-xl transform transition-all  sm:max-w-lg sm:w-full sm:p-6 sm:pb-32">
+                        <Form  className="relative  bg-gray-200 rounded-lg px-4 pt-5 pb-10 text-left overflow-hidden shadow-xl transform transition-all  sm:max-w-lg sm:w-full sm:p-6 sm:pb-32">
                             <div>
                                 <div className="mt-3 text-center sm:mt-5"> 
                                     <h2 as="h3" className="text-xl leading-6 font-medium text-gray-900">
@@ -152,7 +151,7 @@ export default function SearchForm() {
                                         minDate={new Date()}  
                                         selected={startDate} 
                                         onChange={(date) => setStartDate(date)} 
-                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                                        className="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:col-start-2 sm:text-sm"
                                     />
                                     </div>
                                 </div>
@@ -168,7 +167,7 @@ export default function SearchForm() {
                                         minDate={startDate}
                                         selected={endDate} 
                                         onChange={(date) => setEndDate(date)} 
-                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                                        className="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:col-start-2 sm:text-sm"
                                     />
                                     </div>
                                 </div>   

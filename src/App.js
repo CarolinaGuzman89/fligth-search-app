@@ -1,18 +1,18 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import FligthResults from './Components/FligthResults';
-import SearchForm from './Components/Form';
+import FligthResults from './Components/FlightResults';
+import SearchForm from './Components/SearchForm';
 import { useEffect, useState } from 'react';
-import FligthsDetails from './Components/FligthsDetails';
+import FligthsDetails from './Components/FlightsDetails';
 import {UseContext, useToken} from "./Context/useContext"
-import Payment from './Components/Payment';
+
 
 
 function App() {
 
 
-  const [token, setToken] = useState(useToken)
+  const [token, setToken] = useState(useToken);
 
   function getTocken() {
 
@@ -36,16 +36,16 @@ function App() {
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", requestOptions)
       .then(response => response.json())
       .then(result => {
-        setToken(result.access_token)
+        setToken(result.access_token);
       })
       .catch(error => console.log('error', error));
   }
 
   useEffect(() => {
     if(!token) {
-      getTocken()
+      getTocken();
     } 
-  }, [])  
+  }, [token])  
 
 
   return (
@@ -55,7 +55,7 @@ function App() {
           <Route path="/" element={<SearchForm />} />
           <Route path="/FligthResults" element={<FligthResults  token={token} />} /> 
           <Route path="/FligthsDetails" element={<FligthsDetails />} /> 
-          <Route path="/Payment" element={<Payment />} />
+          <Route path="/FligthResults" element={<FligthResults  token={token} />} /> 
         </Routes>
       </BrowserRouter>
     </UseContext.Provider>
