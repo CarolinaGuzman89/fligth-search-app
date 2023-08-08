@@ -10,7 +10,9 @@ The app starts with a search form in which you must enter the origin, destinatio
 
 By clicking on the search button, the app will make a request to the API, in the case of finding results, will return a response with the details of the different flights found with the requested characteristics.
 
-## Demo
+## Demo 
+
+Project deployed in vercel [Flight Search App](https://fligth-search-app.vercel.app/)
 
 
 ## Project description  
