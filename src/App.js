@@ -47,6 +47,7 @@ function App() {
     } 
   }, [token])  
 
+  console.log(token)
 
   return (
     <UseContext.Provider value={{token, setToken}}>
