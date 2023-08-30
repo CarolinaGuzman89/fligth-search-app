@@ -33,6 +33,8 @@ function App() {
       redirect: 'follow'
     };
 
+
+
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", requestOptions)
       .then(response => response.json())
       .then(result => {
@@ -47,7 +49,6 @@ function App() {
     } 
   }, [token])  
 
-  console.log(token)
 
   return (
     <UseContext.Provider value={{token, setToken}}>
