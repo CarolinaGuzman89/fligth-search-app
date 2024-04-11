@@ -3,7 +3,7 @@ import {React, useState}from "react"
 import { Formik, Form, Field, useField} from 'formik';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import AirportsCodes from "../Mocks/AirpotsCode";
+import AirportsCodes from "../Mocks/AirportsMex";
 import Select from 'react-select';
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
